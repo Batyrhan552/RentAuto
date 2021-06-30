@@ -15,7 +15,7 @@ public class CarDesr {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 //    @Setter(AccessLevel.PROTECTED)
-    @Column(name = "carDesr_id")
+//    @Column(name = "carDesr_id")
 
     private String fuel;
     private String transmissions;
@@ -27,5 +27,6 @@ public class CarDesr {
 
     private String lang;
 
-
+    public CarDesr() {
+    }
 }

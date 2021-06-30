@@ -1,10 +1,9 @@
 package kg.megacom.RendAvto.dao.repository;
 
-import kg.megacom.RendAvto.models.CarDesr;
+import kg.megacom.RendAvto.models.OrderData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CarDesrRepo extends JpaRepository<CarDesr,Long> {
-
+public interface OrderDataRepo extends JpaRepository<OrderData,Long> {
 }

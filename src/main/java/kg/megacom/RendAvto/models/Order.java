@@ -10,7 +10,6 @@ import java.util.Date;
 @Entity
 @Table(name = "orders")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Order {
 
@@ -33,6 +32,8 @@ public class Order {
      private BigDecimal totalSum;
      private String clientComment;
 
+     public Order() {
+     }
 }
 
 

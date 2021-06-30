@@ -13,10 +13,10 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "car_id")
+//    @Column(name = "car_id")
 //    @Setter(AccessLevel.PROTECTED)
-
-    private String carType;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     private String model;
 
@@ -27,15 +27,20 @@ public class Car {
     private Byte baggage;
 
     private Byte doors;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
+    private Boolean rented;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cardsr_id")
 
     private CarDesr carDesr;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "rentprice_id")
 
     private RentPrice rentPrice;
 
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "carcategory_id")
+    private CarCategory carCategory;
 }
