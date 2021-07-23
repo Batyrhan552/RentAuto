@@ -17,20 +17,23 @@ public class Order {
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
 
-     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+     @ManyToOne
      @JoinColumn(name = "id_client")
      private Client client;
 
-     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+     @ManyToOne
      @JoinColumn(name = "id_car")
      private Car car;
 
-     private String pickUpLocation;
+     @ManyToOne
+     private Location pickUpLocation;
      private Date startDateRent;
-     private String returnLocation;
+     @ManyToOne
+     private Location returnLocation;
      private Date endDateRent;
-     private BigDecimal totalSum;
+     private Double totalSum;
      private String clientComment;
+     private Boolean active;
 
      public Order() {
      }

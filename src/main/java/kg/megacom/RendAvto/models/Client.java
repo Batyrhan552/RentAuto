@@ -1,7 +1,7 @@
 package kg.megacom.RendAvto.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
+import kg.megacom.RendAvto.models.objects.CarData;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,6 +14,7 @@ import java.util.Date;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "clientId")
     private Long id;
 //   @Column(name = "client_id")
 //    @Setter(AccessLevel.PROTECTED)
@@ -25,6 +26,8 @@ public class Client {
     private String phoneNumber;
 
     private String email;
+
+    private Boolean active;
 
     @Column(name = "registration")
     @JsonIgnore

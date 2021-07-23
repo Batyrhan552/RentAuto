@@ -1,5 +1,6 @@
 package kg.megacom.RendAvto.models;
 
+//import kg.megacom.RendAvto.models.objects.CarData;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "carId")
     private Long id;
 //    @Column(name = "car_id")
 //    @Setter(AccessLevel.PROTECTED)
@@ -28,19 +30,18 @@ public class Car {
 
     private Byte doors;
 
-    private Boolean rented;
+    private Boolean active;
 
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @OneToOne
     @JoinColumn(name = "cardsr_id")
-
     private CarDesr carDesr;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "rentprice_id")
-
     private RentPrice rentPrice;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "carcategory_id")
     private CarCategory carCategory;
 }

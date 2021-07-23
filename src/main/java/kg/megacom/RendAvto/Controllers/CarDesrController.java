@@ -1,6 +1,7 @@
 package kg.megacom.RendAvto.Controllers;
 
 import kg.megacom.RendAvto.models.CarDesr;
+import kg.megacom.RendAvto.models.dto.CarDesrDto;
 import kg.megacom.RendAvto.servise.CarDesrServise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ public class CarDesrController {
     private CarDesrServise carDesrServise;
 
     @PostMapping("/saveCarDesr")
-    public CarDesr saveCarDesr(@RequestBody CarDesr carDesr){
+    public CarDesrDto saveCarDesr(@RequestBody CarDesrDto carDesr){
         return carDesrServise.saveCarDesr(carDesr);
     }
 }

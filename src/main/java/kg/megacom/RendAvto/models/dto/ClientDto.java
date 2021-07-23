@@ -9,7 +9,9 @@ public class ClientDto {
 
     private String lastName;
 
-    private String phoneNum;
+    private String phoneNumber;
 
     private String email;
+
+    private Boolean active;
 }

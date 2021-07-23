@@ -1,6 +1,6 @@
 package kg.megacom.RendAvto.models;
 
-import com.sun.istack.NotNull;
+import kg.megacom.RendAvto.models.objects.CarData;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,6 +13,7 @@ public class CarDesr {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "carDesr_Id")
     private Long id;
 //    @Setter(AccessLevel.PROTECTED)
 //    @Column(name = "carDesr_id")

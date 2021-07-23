@@ -5,6 +5,7 @@ import kg.megacom.RendAvto.configuration.Swagger2Config;
 import kg.megacom.RendAvto.models.Car;
 import kg.megacom.RendAvto.models.CarCategory;
 import kg.megacom.RendAvto.models.Status;
+import kg.megacom.RendAvto.models.dto.CarDto;
 import kg.megacom.RendAvto.servise.CarCateServise;
 import kg.megacom.RendAvto.servise.CarServise;
 import kg.megacom.RendAvto.servise.RentPriceService;
@@ -25,8 +26,8 @@ public class CarController {
 
 
     @PostMapping("/saveCar")
-    public Car saveCar(@RequestBody Car car){
-        return carServise.saveCar(car);
+    public CarDto saveCar(@RequestBody CarDto carDto){
+        return carServise.saveCar(carDto);
     }
 
     @GetMapping("/findbyCategory")
@@ -35,7 +36,7 @@ public class CarController {
     }
 
     @GetMapping("/findbyPrice")
-    public List<Car> findbyPrice(@RequestParam BigDecimal price){
+    public List<Car> findbyPrice(@RequestParam Double price){
         return carServise.findByPrice(price);
     }
 
@@ -67,4 +68,30 @@ public class CarController {
     public List<Car> findbyStatus(@RequestParam Status status) {
         return carServise.findByStatus(status);
     }
+
+    @PutMapping("/update")
+    public CarDto update(@RequestBody  CarDto car){
+        return carServise.update(car);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Car delete(@PathVariable Long id){
+        return carServise.delete(id);
+
+    }
+    @GetMapping("/findById")
+    public CarDto findById(@RequestParam Long id){
+        return carServise.findById(id);
+    }
+
+    @GetMapping("/findAll")
+    public List<CarDto> findAll(){
+        return carServise.findAll();
+    }
+
+    @GetMapping("/findAllByCategory")
+    public List<CarDto> findAllByCategory(){
+        return carServise.findAllByCategory();
+    }
+
 }
